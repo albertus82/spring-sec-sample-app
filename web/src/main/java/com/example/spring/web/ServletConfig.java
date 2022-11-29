@@ -10,6 +10,4 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan
 @EnableWebMvc
 @EnableAspectJAutoProxy
-public class ServletConfig implements WebMvcConfigurer {
-
-}
+public class ServletConfig implements WebMvcConfigurer {}
