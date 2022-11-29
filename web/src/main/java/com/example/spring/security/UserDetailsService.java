@@ -38,7 +38,7 @@ public class UserDetailsService implements AuthenticationUserDetailsService<PreA
 	}
 
 	@Override
-	public UserDetails loadUserDetails(final PreAuthenticatedAuthenticationToken token) {
+	public UserDetails loadUserDetails(PreAuthenticatedAuthenticationToken token) {
 		Objects.requireNonNull(token, "token must not be null");
 		if (token.getPrincipal() == null) {
 			throw new UsernameNotFoundException(Principal.class.getSimpleName() + " is null!");
@@ -67,7 +67,7 @@ public class UserDetailsService implements AuthenticationUserDetailsService<PreA
 		return user;
 	}
 
-	private static Set<UserRole> decodeRoles(final String username, final Collection<? extends GrantedAuthority> authorities) {
+	private static Set<UserRole> decodeRoles(String username, Collection<? extends GrantedAuthority> authorities) {
 		Set<UserRole> roles = EnumSet.noneOf(UserRole.class);
 		authorities.stream().map(GrantedAuthority::getAuthority).forEach(authority -> UserRole.forName(authority).ifPresentOrElse(roles::add, () -> log.warn("Ignored {}: [{}].", username, authority)));
 		if (!roles.isEmpty()) {

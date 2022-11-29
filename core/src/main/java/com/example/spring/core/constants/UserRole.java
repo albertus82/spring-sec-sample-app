@@ -23,7 +23,7 @@ public enum UserRole {
 		return Arrays.stream(UserRole.values());
 	}
 
-	public static Optional<UserRole> forName(final String name) {
+	public static Optional<UserRole> forName(String name) {
 		if (name != null && !name.trim().isEmpty()) {
 			for (UserRole role : UserRole.values()) {
 				if (name.equalsIgnoreCase(role.name)) {

@@ -7,7 +7,7 @@ import com.example.spring.core.dto.UserDTO;
 @Service
 public class UserService {
 
-	public UserDTO findUserById(final String userId) {
+	public UserDTO findUserById(String userId) {
 		return new UserDTO(userId, "John", "Smith");
 	}
 
