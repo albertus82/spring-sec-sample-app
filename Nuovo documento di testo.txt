@@ -1,0 +1,31 @@
+Hi, I upgraded to 5.8.0 and replaced `antMatchers(String...)` with `requestMatchers(String...)` as suggested by the Javadoc, but now i'm getting the following error:
+
+```
+ org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'A Bean named mvcHandlerMappingIntrospector of type org.springframework.web.servlet.handler.HandlerMappingIntrospector is required to use MvcRequestMatcher. Please ensure Spring Security & Spring MVC are configured in a shared ApplicationContext.' available
+	at deployment.example-ear.ear.example-web.war//org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry.createMvcMatchers(AbstractRequestMatcherRegistry.java:187)
+	at deployment.example-ear.ear.example-web.war//org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry.requestMatchers(AbstractRequestMatcherRegistry.java:302)
+	at deployment.example-ear.ear.example-web.war//org.springframework.security.config.annotation.web.AbstractRequestMatcherRegistry.requestMatchers(AbstractRequestMatcherRegistry.java:329)
+	at deployment.example-ear.ear.example-web.war//com.example.security.SecurityConfig.filterChain(SecurityConfig.java:40)
+	at deployment.example-ear.ear.example-web.war//com.example.security.SecurityConfig$$EnhancerBySpringCGLIB$$fc2f12b6.CGLIB$filterChain$1(<generated>)
+	at deployment.example-ear.ear.example-web.war//com.example.security.SecurityConfig$$EnhancerBySpringCGLIB$$fc2f12b6$$FastClassBySpringCGLIB$$8e1dbe85.invoke(<generated>)
+	at deployment.example-ear.ear.example-web.war//org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at deployment.example-ear.ear.example-web.war//org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at deployment.example-ear.ear.example-web.war//com.example.security.SecurityConfig$$EnhancerBySpringCGLIB$$fc2f12b6.filterChain(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at deployment.example-ear.ear.example-web.war//org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 54 more
+```
+
+**To Reproduce**
+Steps to reproduce the behavior.
+
+
+**Sample**
+
+A link to a GitHub repository with a [minimal, reproducible sample](https://stackoverflow.com/help/minimal-reproducible-example).
+
+Reports that include a sample will take priority over reports that do not.
+At times, we may require a sample, so it is good to try and include a sample up front.

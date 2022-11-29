@@ -1,0 +1,7 @@
+*.class
+*.versionsBackup
+.classpath
+.DS_Store
+.project
+.settings/
+.tern-project
