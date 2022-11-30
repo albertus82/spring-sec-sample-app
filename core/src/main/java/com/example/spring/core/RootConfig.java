@@ -1,5 +1,12 @@
 package com.example.spring.core;
 
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
@@ -17,12 +24,14 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@ComponentScan
+@ComponentScan//(basePackages = "com.example")
 public class RootConfig {
 
 	private static final Logger log = LoggerFactory.getLogger(RootConfig.class);
 
 	private static final Set<String> beanNames = new HashSet<>();
+
+	private static final String LOG_FILE_NAME = "spring-" + DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS").format(LocalDateTime.now()) + ".log";
 
 	@Component
 	static class BeanDefinitionsLogger implements ApplicationListener<ContextRefreshedEvent> {
@@ -48,6 +57,12 @@ public class RootConfig {
 			msg.append(String.format("***** Found %d duplicates in %s *****%n", dup.size(), context));
 			msg.append("*******************************************************************************");
 			log.info("{}", msg);
+			try {
+				Files.writeString(Path.of(System.getProperty("user.home"), LOG_FILE_NAME), msg.toString() + System.lineSeparator(), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+			}
+			catch (IOException e) {
+				throw new UncheckedIOException(e);
+			}
 		}
 	}
 
