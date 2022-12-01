@@ -13,12 +13,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.example.spring.core.constants.UserRole;
 import com.example.spring.core.constants.UserRole.RoleNames;
 
 @Configuration
 @ComponentScan
+@EnableWebMvc
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig implements ApplicationContextAware {
