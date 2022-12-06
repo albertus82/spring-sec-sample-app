@@ -7,16 +7,16 @@
 
 	<parent>
 		<groupId>com.example.spring</groupId>
-		<artifactId>spring-sec-sample-parent</artifactId>
+		<artifactId>spring-security-sample-parent</artifactId>
 		<version>0.0.1</version>
-		<relativePath>../spring-sec-sample-parent</relativePath>
+		<relativePath>../spring-security-sample-parent</relativePath>
 	</parent>
 
-	<artifactId>spring-sec-sample-ear</artifactId>
+	<artifactId>spring-security-sample-ear</artifactId>
 	<packaging>ear</packaging>
 
 	<properties>
-		<webModule.artifactId>spring-sec-sample-web</webModule.artifactId>
+		<webModule.artifactId>spring-security-sample-web</webModule.artifactId>
 		<webModule.contextRoot>sample</webModule.contextRoot>
 	</properties>
 

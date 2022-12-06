@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example.spring</groupId>
-	<artifactId>spring-sec-sample-parent</artifactId>
+	<artifactId>spring-security-sample-parent</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
