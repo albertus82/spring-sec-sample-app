@@ -2,6 +2,7 @@ package com.example.spring;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
 
 import com.example.spring.core.RootConfig;
 import com.example.spring.security.SecurityConfig;
@@ -11,12 +12,12 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { RootConfig.class, SecurityConfig.class };
+		return new Class<?>[] { RootConfig.class };
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] { ServletConfig.class };
+		return new Class<?>[] { SecurityConfig.class, ServletConfig.class };
 	}
 
 	@Override
@@ -24,6 +25,11 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 		return new String[] { "/" };
 	}
 
-	public static class SecurityWebAppInitializer extends AbstractSecurityWebApplicationInitializer {}
+	public static class SecurityWebAppInitializer extends AbstractSecurityWebApplicationInitializer {
+		@Override
+		protected String getDispatcherWebApplicationContextSuffix() {
+			return AbstractDispatcherServletInitializer.DEFAULT_SERVLET_NAME;
+		}
+	}
 
 }
