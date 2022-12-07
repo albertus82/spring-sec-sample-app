@@ -51,9 +51,9 @@
 	</dependencyManagement>
 
 	<modules>
-		<module>../core</module>
-		<module>../web</module>
-		<module>../ear</module>
+		<module>../spring-security-sample-core</module>
+		<module>../spring-security-sample-web</module>
+		<module>../spring-security-sample-ear</module>
 	</modules>
 
 </project>
