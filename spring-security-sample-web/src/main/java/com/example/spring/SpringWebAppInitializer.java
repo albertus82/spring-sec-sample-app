@@ -8,6 +8,7 @@ import com.example.spring.core.RootConfig;
 import com.example.spring.security.SecurityConfig;
 import com.example.spring.web.ServletConfig;
 
+//https://github.com/spring-projects/spring-security/issues/12319#issuecomment-1338377623
 public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
