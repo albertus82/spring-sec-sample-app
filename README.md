@@ -1,1 +1,2 @@
-https://github.com/spring-projects/spring-security/issues/12319
+Spring Security Sample EAR
+==========================
