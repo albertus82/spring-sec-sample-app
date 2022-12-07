@@ -17,7 +17,7 @@
 
 	<properties>
 		<webModule.artifactId>spring-security-sample-web</webModule.artifactId>
-		<webModule.contextRoot>sample</webModule.contextRoot>
+		<webModule.contextRoot>${webModule.artifactId}</webModule.contextRoot>
 	</properties>
 
 	<build>
