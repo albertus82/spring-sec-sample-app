@@ -20,7 +20,7 @@ public class UserController {
 	}
 
 	@GetMapping("/{id}")
-	public UserResponseDTO getCurrentUser(@PathVariable("id") String userId) {
+	public UserResponseDTO get(@PathVariable("id") String userId) {
 		UserDTO user = userService.findUserById(userId);
 		return new UserResponseDTO(user.getUserId(), user.getFirstName(), user.getLastName());
 	}
