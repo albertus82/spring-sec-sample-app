@@ -1,4 +1,4 @@
-package com.example.spring.security;
+package com.example.spring.web.security;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.spring.core.constants.UserRole;
 import com.example.spring.core.dto.UserDTO;
+import com.example.spring.core.security.AuthenticatedUser;
 import com.example.spring.core.service.UserService;
 
 @Service
