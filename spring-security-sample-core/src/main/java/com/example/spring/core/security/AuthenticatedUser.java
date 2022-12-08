@@ -1,4 +1,4 @@
-package com.example.spring.security;
+package com.example.spring.core.security;
 
 import java.util.Collection;
 import java.util.EnumSet;
