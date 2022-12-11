@@ -1,2 +1,2 @@
-Spring Security Sample EAR
-==========================
+Spring Security Sample Web App
+==============================
