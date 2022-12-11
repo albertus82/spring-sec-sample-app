@@ -28,14 +28,6 @@
 			<web-resource-name>public</web-resource-name>
 			<description>public</description>
 			<url-pattern>/public/*</url-pattern>
-		</web-resource-collection>
-	</security-constraint>
-
-	<security-constraint>
-		<display-name>index</display-name>
-		<web-resource-collection>
-			<web-resource-name>index</web-resource-name>
-			<description>index</description>
 			<url-pattern>/index.html</url-pattern>
 		</web-resource-collection>
 	</security-constraint>
