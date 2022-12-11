@@ -18,13 +18,17 @@ public class SampleController {
 	}
 
 	@Secured(RoleNames.ROLE_ADMIN)
-	@RequestMapping(path = "/secured/dynamic/admin-only", produces = MediaType.TEXT_PLAIN_VALUE)
+	@RequestMapping(path = "/secured/dynamic/admin-only-secured", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String getAdminOnly(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}
 
-	@Secured({ RoleNames.ROLE_USER, RoleNames.ROLE_ADMIN })
-	@RequestMapping(path = "/secured/dynamic/authenticated-only", produces = MediaType.TEXT_PLAIN_VALUE)
+	@RequestMapping(path = "/secured/dynamic/admin/admin-only-matcher", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String getAdminOnly2(@AuthenticationPrincipal AuthenticatedUser principal) {
+		return getCurrentUserInfo(principal);
+	}
+
+	@RequestMapping(path = "/secured/dynamic/all-roles", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String getUserOnly(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}

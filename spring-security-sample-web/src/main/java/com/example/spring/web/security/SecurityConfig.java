@@ -33,7 +33,7 @@ public class SecurityConfig implements ApplicationContextAware {
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.jee().authenticatedUserDetailsService(token -> context.getBean(UserDetailsService.class).loadUserDetails(token)) // lambda required for warm context refresh
-				.mappableAuthorities(UserRole.stream().map(UserRole::getName).collect(Collectors.toSet())).and().authorizeHttpRequests().requestMatchers("/admin/**").hasAuthority(RoleNames.ROLE_ADMIN).and().csrf().disable().logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.NO_CONTENT));
+				.mappableAuthorities(UserRole.stream().map(UserRole::getName).collect(Collectors.toSet())).and().authorizeHttpRequests().requestMatchers("/secured/dynamic/admin/**").hasAuthority(RoleNames.ROLE_ADMIN).and().csrf().disable().logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.NO_CONTENT));
 		return http.build();
 	}
 

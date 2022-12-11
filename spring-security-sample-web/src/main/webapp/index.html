@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Spring Security Sample Webapp</title>
+	<title>Spring Security Sample Webapp</title>
 </head>
 <body>
 	<h1>Spring Security Sample Webapp</h1>
-	<h2>Static (container)</h2>
+	<h2>Static (Container only)</h2>
 	<ul>
 		<li><a href="public/static/page.html">Public static resource</a></li>
 		<li><a href="secured/static/page.html">Secured static resource</a></li>
 	</ul>
-	<h2>Dynamic (Spring Security)</h2>
+	<h2>Dynamic (Container + Spring Security)</h2>
 	<ul>
-		<li><a href="public/dynamic/user-info">Current principal info</a></li>
+		<li><a href="public/dynamic/user-info">Current principal info (public)</a></li>
+		<li><a href="secured/dynamic/all-roles">All roles (web.xml)</a></li>
+		<li><a href="secured/dynamic/admin-only-secured">Admin only (@Secured)</a></li>
+		<li><a href="secured/dynamic/admin/admin-only-matcher">Admin only (RequestMatcher)</a></li>
 	</ul>
 </body>
 </html>
