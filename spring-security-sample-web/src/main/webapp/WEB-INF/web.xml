@@ -8,11 +8,12 @@
 		<session-timeout>1</session-timeout>
 	</session-config>
 
+	<!-- Require authentication -->
 	<security-constraint>
-		<display-name>secured</display-name>
+		<display-name>default</display-name>
 		<web-resource-collection>
-			<web-resource-name>secured</web-resource-name>
-			<description>secured</description>
+			<web-resource-name>default</web-resource-name>
+			<description>default</description>
 			<url-pattern>/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
@@ -30,9 +31,18 @@
 		</web-resource-collection>
 	</security-constraint>
 
+	<security-constraint>
+		<display-name>index</display-name>
+		<web-resource-collection>
+			<web-resource-name>index</web-resource-name>
+			<description>index</description>
+			<url-pattern>/index.html</url-pattern>
+		</web-resource-collection>
+	</security-constraint>
+
 	<login-config>
 		<auth-method>BASIC</auth-method>
-		<realm-name>example</realm-name>
+		<realm-name>${project.artifactId}</realm-name>
 	</login-config>
 
 	<security-role>

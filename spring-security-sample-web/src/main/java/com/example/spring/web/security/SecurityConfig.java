@@ -37,7 +37,7 @@ public class SecurityConfig implements ApplicationContextAware {
 		return http.build();
 	}
 
-	//https://github.com/spring-projects/spring-security/issues/12319#issuecomment-1338377623
+	// https://github.com/spring-projects/spring-security/issues/12319#issuecomment-1338377623
 	public static class SecurityWebAppInitializer extends AbstractSecurityWebApplicationInitializer {
 		@Override
 		protected String getDispatcherWebApplicationContextSuffix() {
