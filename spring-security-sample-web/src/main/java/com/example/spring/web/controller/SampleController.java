@@ -3,6 +3,7 @@ package com.example.spring.web.controller;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,26 +11,27 @@ import com.example.spring.core.constants.UserRole.RoleNames;
 import com.example.spring.core.security.AuthenticatedUser;
 
 @RestController
+@RequestMapping(produces = MediaType.TEXT_PLAIN_VALUE)
 public class SampleController {
 
-	@RequestMapping(path = "/public/dynamic/user-info", produces = MediaType.TEXT_PLAIN_VALUE)
+	@GetMapping("/public/dynamic/user-info")
 	public String getUserInfo(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}
 
 	@Secured(RoleNames.ROLE_ADMIN)
-	@RequestMapping(path = "/secured/dynamic/admin-only-secured", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String getAdminOnly(@AuthenticationPrincipal AuthenticatedUser principal) {
+	@GetMapping("/secured/dynamic/admin-only-secured")
+	public String getAdminOnlySecured(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}
 
-	@RequestMapping(path = "/secured/dynamic/admin/admin-only-matcher", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String getAdminOnly2(@AuthenticationPrincipal AuthenticatedUser principal) {
+	@GetMapping("/secured/dynamic/admin/admin-only-matcher")
+	public String getAdminOnlyMatcher(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}
 
-	@RequestMapping(path = "/secured/dynamic/all-roles", produces = MediaType.TEXT_PLAIN_VALUE)
-	public String getUserOnly(@AuthenticationPrincipal AuthenticatedUser principal) {
+	@GetMapping("/secured/dynamic/all-roles")
+	public String getAllRoles(@AuthenticationPrincipal AuthenticatedUser principal) {
 		return getCurrentUserInfo(principal);
 	}
 
